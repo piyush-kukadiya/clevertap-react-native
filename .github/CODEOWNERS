@@ -1,0 +1,3 @@
+# Default reviewer for everything.
+# Auto-PRs from clevertap-wrapper-sync will request review from listed owners.
+* @piyush-kukadiya
