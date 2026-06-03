@@ -36,10 +36,10 @@ on:
         type: string
         default: ''
       model:
-        description: 'Claude model'
+        description: 'Claude model (alias)'
         type: choice
-        options: [sonnet-4-6, opus-4-7, opus-4-8]
-        default: sonnet-4-6
+        options: [sonnet, opus, haiku]
+        default: sonnet
 
 jobs:
   sync:
