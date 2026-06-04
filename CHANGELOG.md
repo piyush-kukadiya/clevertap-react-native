@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+## [Unreleased]
+- [Android] Bump clevertap-android-sdk to 8.2.0 — adds App Inbox cross-device sync with on-demand `fetchInbox` refresh APIs and pull-to-refresh in the built-in inbox
+- [iOS] Bump CleverTap-iOS-SDK to 7.7.0 — adds App Inbox cross-device sync with on-demand `fetchInbox` refresh API, element-level display unit click attribution, and a crash fix in CTInAppEvaluationManager
+
 Version 4.1.0 *(April 30 2026)*
 -------------------------------------------
 **What's new**

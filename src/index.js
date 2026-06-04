@@ -680,6 +680,14 @@ var CleverTap = {
     },
 
     /**
+     * Manually triggers an on-demand inbox refresh from the server.
+     * @param {function(err, res)} callback - optional; res is true if fetch was dispatched, false if throttled or inbox not initialised
+     */
+    fetchInbox: function (callback) {
+        callWithCallback('fetchInbox', null, callback);
+    },
+
+    /**
      * Get the total number of Inbox Messages
      * @param {function(err, res)} callback that returns a res of count of inbox messages or -1
      */
@@ -798,6 +806,16 @@ var CleverTap = {
      */
     pushDisplayUnitClickedEventForID: function (unitID) {
         CleverTapReact.pushDisplayUnitClickedEventForID(unitID);
+    },
+
+    /**
+     * Raises a Display Unit element-level Clicked event (iOS only).
+     * @param {string} unitID - id of the display unit
+     * @param {string} elementID - id of the clicked child element
+     * @param {object} additionalProperties - optional per-click context key-value pairs
+     */
+    pushDisplayUnitElementClickedEventForID: function (unitID, elementID, additionalProperties) {
+        CleverTapReact.pushDisplayUnitElementClickedEventForID(unitID, elementID, additionalProperties || null);
     },
 
 

@@ -588,6 +588,13 @@ export function isPushPermissionGranted(callback: CallbackString): void;
    */
   export function pushInboxNotificationViewedEventForId(messageId: string): void;
 
+  /**
+   * Call this method to manually trigger an on-demand inbox refresh from the server.
+   * callback(true) — fetch was dispatched; callback(false) — throttled or inbox not initialised.
+   * Pass no callback for fire-and-forget.
+   */
+  export function fetchInbox(callback?: Callback): void;
+
   /****************************
   * Native Display Methods
   ****************************/
@@ -611,6 +618,13 @@ export function isPushPermissionGranted(callback: CallbackString): void;
    * Call this method to raise display unit clicked event
    */
   export function pushDisplayUnitClickedEventForID(unitID: string): void;
+
+  /**
+   * Call this method to raise a display unit element-level clicked event.
+   * Use for Native Display units that host multiple interactive child elements.
+   * iOS only — no-op on Android until the Android SDK adds this API.
+   */
+  export function pushDisplayUnitElementClickedEventForID(unitID: string, elementID: string, additionalProperties?: Record<string, any>): void;
 
   /*******************
    * Product Configs

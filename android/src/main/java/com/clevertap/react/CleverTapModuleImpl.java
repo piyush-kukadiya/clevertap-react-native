@@ -25,6 +25,7 @@ import com.clevertap.android.sdk.displayunits.model.CleverTapDisplayUnit;
 import com.clevertap.android.sdk.events.EventDetail;
 import com.clevertap.android.sdk.featureFlags.CTFeatureFlagsController;
 import com.clevertap.android.sdk.inapp.CTLocalInApp;
+import com.clevertap.android.sdk.FetchInboxCallback;
 import com.clevertap.android.sdk.inapp.callbacks.FetchInAppsCallback;
 import com.clevertap.android.sdk.inapp.customtemplates.CustomTemplateContext;
 import com.clevertap.android.sdk.inbox.CTInboxMessage;
@@ -616,6 +617,19 @@ public class CleverTapModuleImpl {
         }
     }
 
+    public void fetchInbox(Callback callback) {
+        CleverTapAPI cleverTap = getCleverTapAPI();
+        if (cleverTap == null) {
+            Log.e(TAG, ErrorMessages.CLEVERTAP_NOT_INITIALIZED);
+            return;
+        }
+        if (callback == null) {
+            cleverTap.fetchInbox();
+        } else {
+            cleverTap.fetchInbox((FetchInboxCallback) success -> callback.invoke(null, success));
+        }
+    }
+
     public void markReadInboxMessageForId(String messageId) {
         CleverTapAPI cleverTap = getCleverTapAPI();
         if (cleverTap != null) {
@@ -883,6 +897,10 @@ public class CleverTapModuleImpl {
         } else {
             Log.e(TAG, ErrorMessages.CLEVERTAP_NOT_INITIALIZED);
         }
+    }
+
+    public void pushDisplayUnitElementClickedEventForID(String unitID, String elementID, ReadableMap additionalProperties) {
+        Log.w(TAG, "pushDisplayUnitElementClickedEventForID is not supported on Android");
     }
 
     public void pushInstallReferrer(String source, String medium, String campaign) {
