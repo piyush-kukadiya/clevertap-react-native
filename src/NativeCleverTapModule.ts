@@ -167,6 +167,7 @@ export interface Spec extends TurboModule {
   deleteInboxMessagesForIDs(messageIds: string[]): void;
   dismissInbox(): void;
   initializeInbox(): void;
+  fetchInbox(): void;
   showInbox(
     styleConfig: Object | null
   ): void;

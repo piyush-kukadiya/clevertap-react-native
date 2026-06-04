@@ -268,6 +268,11 @@ class CleverTapModule(reactContext: ReactApplicationContext?) :
     }
 
     @ReactMethod
+    fun fetchInbox() {
+        cleverTapModuleImpl.fetchInbox()
+    }
+
+    @ReactMethod
     fun markReadInboxMessageForId(messageId: String?) {
         cleverTapModuleImpl.markReadInboxMessageForId(messageId)
     }

@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+## [Unreleased]
+
+- [Android] Bump clevertap-android-sdk to 8.2.0 — adds `fetchInbox()` for on-demand App Inbox refresh and cross-device inbox sync support.
+- [iOS] Bump CleverTap-iOS-SDK to 7.7.0 — adds cross-device App Inbox sync (messages deleted/read on one device reflect on others) and a pull-to-refresh gesture in the built-in inbox.
+
 Version 4.1.0 *(April 30 2026)*
 -------------------------------------------
 **What's new**

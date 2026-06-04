@@ -616,6 +616,15 @@ public class CleverTapModuleImpl {
         }
     }
 
+    public void fetchInbox() {
+        CleverTapAPI cleverTap = getCleverTapAPI();
+        if (cleverTap != null) {
+            cleverTap.fetchInbox();
+        } else {
+            Log.e(TAG, ErrorMessages.CLEVERTAP_NOT_INITIALIZED);
+        }
+    }
+
     public void markReadInboxMessageForId(String messageId) {
         CleverTapAPI cleverTap = getCleverTapAPI();
         if (cleverTap != null) {

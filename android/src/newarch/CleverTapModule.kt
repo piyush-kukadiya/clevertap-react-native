@@ -233,6 +233,10 @@ class CleverTapModule(reactContext: ReactApplicationContext?) :
         cleverTapModuleImpl.initializeInbox()
     }
 
+    override fun fetchInbox() {
+        cleverTapModuleImpl.fetchInbox()
+    }
+
     override fun markReadInboxMessageForId(messageId: String?) {
         cleverTapModuleImpl.markReadInboxMessageForId(messageId)
     }

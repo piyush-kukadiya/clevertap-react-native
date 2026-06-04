@@ -665,6 +665,14 @@ var CleverTap = {
     },
 
     /**
+     * Trigger an on-demand refresh of App Inbox messages from the server (fire-and-forget).
+     * Throttled to once every 5 minutes; shared throttle with pull-to-refresh.
+     */
+    fetchInbox: function () {
+        CleverTapReact.fetchInbox();
+    },
+
+    /**
     * Method to show the App Inbox
     * @param {object} styleConfig - key-value profile properties.  keys and values are strings
     */
