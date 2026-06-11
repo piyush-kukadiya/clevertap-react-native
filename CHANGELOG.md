@@ -1,6 +1,25 @@
 Change Log
 ==========
 
+Version 4.2.0 *(June 11 2026)*
+-------------------------------------------
+**What's new**
+* **[Android Platform]**
+  * Supports [CleverTap Android SDK v8.3.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-830-june-2026).
+  * App Inbox Cross-Device Sync (landed in Android SDK v8.2.0) — inbox state (read, deleted) syncs across a user's devices automatically. The built-in App Inbox view now includes a pull-to-refresh gesture, throttled to once every 5 minutes.
+  * Native Display Element Click — finer-grained click analytics for Native Display experiences via `pushDisplayUnitElementClickedEventForID`.
+
+* **[iOS Platform]**
+  * Supports [CleverTap iOS SDK v7.7.1](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-771-june-04-2026).
+  * App Inbox Cross-Device Sync (landed in iOS SDK v7.7.0) — inbox state (read, deleted) syncs across a user's devices automatically. The built-in App Inbox view now includes a pull-to-refresh gesture, throttled to once every 5 minutes.
+  * Native Display Element Click — finer-grained click analytics for Native Display experiences via `pushDisplayUnitElementClickedEventForID`.
+  * Silent-in-foreground push notifications — push notifications can be suppressed from appearing as heads-up alerts when the app is in the foreground via the `wzrk_sif:true` payload key. Works automatically when using `autoIntegrate`; manual integration requires calling the new `handleWillPresentNotification:withDefaultOptions:completionHandler:` method from your `UNUserNotificationCenterDelegate`.
+
+**API changes**
+* **[Android and iOS Platform]**
+  * Adds `fetchInbox(callback?)` — triggers an on-demand App Inbox refresh from the server; optional callback receives a success/failure boolean. Throttled to once every 5 minutes.
+  * Adds `pushDisplayUnitElementClickedEventForID(unitID, additionalProperties)` — records a `Notification Clicked` event for a specific element within a Display Unit, merging caller-supplied properties with cached `wzrk_*` attribution fields.
+
 Version 4.1.0 *(April 30 2026)*
 -------------------------------------------
 **What's new**

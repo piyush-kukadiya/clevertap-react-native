@@ -28,6 +28,7 @@
 		48BF79812AB076F20091FF16 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48BF797F2AB076F20091FF16 /* MainInterface.storyboard */; };
 		48BF79852AB076F20091FF16 /* NotificationContentSwift.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 48BF79792AB076F10091FF16 /* NotificationContentSwift.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		685D0A42F74FC38D84284799 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3DD3EBC1242A62F0E22B /* PrivacyInfo.xcprivacy */; };
+		6CEFC61A3BFA454385B2DEB1 /* templates.json in Resources */ = {isa = PBXBuildFile; fileRef = 63BD588CF877484CA41FBE5E /* templates.json */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		C28EE22363709BEF624F9F1E /* libPods-NotificationContentSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C33252DD165317E32A556B4 /* libPods-NotificationContentSwift.a */; };
 		FFDFBBA910887882FBEAC7E1 /* libPods-NotificationContent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEC195091200DD33134801AA /* libPods-NotificationContent.a */; };
@@ -112,6 +113,7 @@
 		494B16C126B01FD7008F32F7 /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Example.entitlements; path = Example/Example.entitlements; sourceTree = "<group>"; };
 		59A64E1CB57DEDF6784E1EA0 /* Pods-NotificationContentSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationContentSwift.release.xcconfig"; path = "Target Support Files/Pods-NotificationContentSwift/Pods-NotificationContentSwift.release.xcconfig"; sourceTree = "<group>"; };
 		5CDAF8163A120B0E6653507A /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		63BD588CF877484CA41FBE5E /* templates.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = templates.json; path = ../assets/templates.json; sourceTree = "<group>"; };
 		73C88AB325F594C5AD9B8C55 /* Pods-NotificationServiceSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationServiceSwift.release.xcconfig"; path = "Target Support Files/Pods-NotificationServiceSwift/Pods-NotificationServiceSwift.release.xcconfig"; sourceTree = "<group>"; };
 		7C33252DD165317E32A556B4 /* libPods-NotificationContentSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NotificationContentSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Example/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				7168044AA71FBFBA4A3B8E24 /* Pods */,
+				B9DAD0142AE54E09A5E3EC9F /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -297,6 +300,15 @@
 				48BF79792AB076F10091FF16 /* NotificationContentSwift.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B9DAD0142AE54E09A5E3EC9F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				63BD588CF877484CA41FBE5E /* templates.json */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +473,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				685D0A42F74FC38D84284799 /* PrivacyInfo.xcprivacy in Resources */,
+				6CEFC61A3BFA454385B2DEB1 /* templates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1295,7 +1308,10 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -1363,7 +1379,10 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

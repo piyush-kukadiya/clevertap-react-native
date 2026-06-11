@@ -704,6 +704,17 @@ RCT_EXPORT_METHOD(dismissInbox) {
     [[self cleverTapInstance] dismissAppInbox];
 }
 
+RCT_EXPORT_METHOD(fetchInbox:(RCTResponseSenderBlock)callback) {
+    RCTLogInfo(@"[CleverTap fetchInbox]");
+    if (callback == NULL) {
+        [[self cleverTapInstance] fetchInboxWithCallback:nil];
+    } else {
+        [[self cleverTapInstance] fetchInboxWithCallback:^(BOOL success) {
+            callback(@[[NSNull null], @(success)]);
+        }];
+    }
+}
+
 RCT_EXPORT_METHOD(initializeInbox) {
     RCTLogInfo(@"[CleverTap Inbox Initialize]");
     [[self cleverTapInstance] initializeInboxWithCallback:^(BOOL success) {
@@ -854,6 +865,11 @@ RCT_EXPORT_METHOD(pushDisplayUnitViewedEventForID:(NSString*)unitId) {
 RCT_EXPORT_METHOD(pushDisplayUnitClickedEventForID:(NSString*)unitId) {
     RCTLogInfo(@"[CleverTap pushDisplayUnitClickedEventForID]");
     [[self cleverTapInstance] recordDisplayUnitClickedEventForID:unitId];
+}
+
+RCT_EXPORT_METHOD(pushDisplayUnitElementClickedEventForID:(NSString*)unitId additionalProperties:(NSDictionary*)additionalProperties) {
+    RCTLogInfo(@"[CleverTap pushDisplayUnitElementClickedEventForID]");
+    [[self cleverTapInstance] recordDisplayUnitElementClickedEventForID:unitId additionalProperties:additionalProperties];
 }
 
 
