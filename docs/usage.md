@@ -145,6 +145,21 @@ Add the `CleverTapEncryptionLevel` String key to `info.plist` file where value 1
 
 ## App Inbox
 
+#### Fetch Inbox
+
+*Available from CleverTap React Native SDK v4.2.0.*
+
+Triggers an on-demand App Inbox refresh from the server. The optional callback receives a boolean `success` flag — `true` if new messages were fetched and applied, `false` if the fetch was throttled (once every 5 minutes), disabled, or failed. The callback fires on a background thread; post to the main thread before touching UI.
+
+```javascript
+CleverTap.fetchInbox((err, success) => {
+    console.log('Inbox fetch success:', success);
+});
+
+// Without callback (fire-and-forget):
+CleverTap.fetchInbox();
+```
+
 #### Initialize the CleverTap App Inbox Method
 
 ```javascript 
@@ -326,6 +341,20 @@ CleverTap.pushRegistrationToken("my_bps_token", {
 -----------
  
 ## Native Display
+
+#### Push Display Unit Element Clicked Event For ID
+
+*Available from CleverTap React Native SDK v4.2.0.*
+
+Records a `Notification Clicked` event for a specific element within a Display Unit. The `additionalProperties` map should include `wzrk_element_id` (from the element's action metadata) and any other `wzrk_*` attribution fields you want to attach. The SDK merges these with cached attribution data from the unit before recording.
+
+```javascript
+CleverTap.pushDisplayUnitElementClickedEventForID('unit_abc123', {
+    wzrk_element_id: 'btn_cta_1',
+    wzrk_c2a: 'shop-now',
+    promo_id: 42,
+});
+```
 
 #### Get Display Unit for Id
 

@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1E24D7D3577A4561A8E85559 /* templates.json in Resources */ = {isa = PBXBuildFile; fileRef = D47A0325CC5D4220A0ECE0A9 /* templates.json */; };
 		2E99F3691820957DA1663D14 /* libPods-NotificationServiceSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE80A1163F6D4E85C40F4854 /* libPods-NotificationServiceSwift.a */; };
 		4392402C43F4132A115E1138 /* libPods-NotificationService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C8970D6BA80692BF97003D /* libPods-NotificationService.a */; };
 		48BF78C22AA5B5110091FF16 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48BF78C12AA5B5110091FF16 /* NotificationService.m */; };
@@ -120,6 +121,7 @@
 		9A4F85D67D5B0F893CB3B7DD /* Pods-NotificationContent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationContent.release.xcconfig"; path = "Target Support Files/Pods-NotificationContent/Pods-NotificationContent.release.xcconfig"; sourceTree = "<group>"; };
 		9CF297EC709EB6ACF8061CA3 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		BD5B019CABBC37FC10FB2664 /* Pods-NotificationServiceSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationServiceSwift.debug.xcconfig"; path = "Target Support Files/Pods-NotificationServiceSwift/Pods-NotificationServiceSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		D47A0325CC5D4220A0ECE0A9 /* templates.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = templates.json; path = ../assets/templates.json; sourceTree = "<group>"; };
 		DEC195091200DD33134801AA /* libPods-NotificationContent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NotificationContent.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76E52FCD16B805CA63C3A86 /* Pods-NotificationContentSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationContentSwift.debug.xcconfig"; path = "Target Support Files/Pods-NotificationContentSwift/Pods-NotificationContentSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -281,6 +283,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				7168044AA71FBFBA4A3B8E24 /* Pods */,
+				DB2322EEF72F4AB59F422172 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -297,6 +300,15 @@
 				48BF79792AB076F10091FF16 /* NotificationContentSwift.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DB2322EEF72F4AB59F422172 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D47A0325CC5D4220A0ECE0A9 /* templates.json */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +473,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				685D0A42F74FC38D84284799 /* PrivacyInfo.xcprivacy in Resources */,
+				1E24D7D3577A4561A8E85559 /* templates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1295,7 +1308,10 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -1363,7 +1379,10 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

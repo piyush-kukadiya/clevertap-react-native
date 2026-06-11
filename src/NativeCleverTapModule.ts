@@ -177,6 +177,8 @@ export interface Spec extends TurboModule {
   ): void;
   pushDisplayUnitViewedEventForID(unitId: string): void;
   pushDisplayUnitClickedEventForID(unitId: string): void;
+  pushDisplayUnitElementClickedEventForID(unitId: string, additionalProperties: Object): void;
+  fetchInbox(callback: ((error: Object, result: boolean) => void) | null): void;
   getFeatureFlag(
     flag: string,
     withdefaultValue: boolean,

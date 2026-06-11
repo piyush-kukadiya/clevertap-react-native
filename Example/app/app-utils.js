@@ -572,6 +572,23 @@ export const getAllDisplayUnits = () => {
     });
 };
 
+export const pushDisplayUnitElementClickedEventForID = () => {
+    CleverTap.pushDisplayUnitElementClickedEventForID('unit_abc123', {
+        wzrk_element_id: 'btn_cta_1',
+        wzrk_c2a: 'shop-now',
+        promo_id: 42,
+    });
+    showToast('Display unit element click event pushed');
+    console.log('pushDisplayUnitElementClickedEventForID called');
+};
+
+export const fetchInbox = () => {
+    CleverTap.fetchInbox((err, res) => {
+        console.log('fetchInbox result:', res, err);
+        showToast(`fetchInbox success: ${res}`);
+    });
+};
+
 // Product Config
 export const productConfig = () => {
     showToast('Product Configuration set to default');

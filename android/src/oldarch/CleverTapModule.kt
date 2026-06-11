@@ -383,6 +383,16 @@ class CleverTapModule(reactContext: ReactApplicationContext?) :
     }
 
     @ReactMethod
+    fun pushDisplayUnitElementClickedEventForID(unitID: String?, additionalProperties: ReadableMap?) {
+        cleverTapModuleImpl.pushDisplayUnitElementClickedEventForID(unitID, additionalProperties)
+    }
+
+    @ReactMethod
+    fun fetchInbox(callback: Callback?) {
+        cleverTapModuleImpl.fetchInbox(callback)
+    }
+
+    @ReactMethod
     fun pushDisplayUnitViewedEventForID(unitID: String?) {
         cleverTapModuleImpl.pushDisplayUnitViewedEventForID(unitID)
     }
