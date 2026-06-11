@@ -612,6 +612,18 @@ export function isPushPermissionGranted(callback: CallbackString): void;
    */
   export function pushDisplayUnitClickedEventForID(unitID: string): void;
 
+  /**
+   * Raises a Notification Clicked event for a specific element within a Display Unit.
+   * Available from CleverTap React Native SDK v4.2.0.
+   */
+  export function pushDisplayUnitElementClickedEventForID(unitID: string, additionalProperties: Record<string, any>): void;
+
+  /**
+   * Triggers an on-demand App Inbox refresh from the server. Throttled to once every 5 minutes.
+   * Available from CleverTap React Native SDK v4.2.0.
+   */
+  export function fetchInbox(callback?: (err: any, success: boolean) => void): void;
+
   /*******************
    * Product Configs
    ******************/ 

@@ -856,6 +856,22 @@ RCT_EXPORT_METHOD(pushDisplayUnitClickedEventForID:(NSString*)unitId) {
     [[self cleverTapInstance] recordDisplayUnitClickedEventForID:unitId];
 }
 
+RCT_EXPORT_METHOD(pushDisplayUnitElementClickedEventForID:(NSString*)unitId additionalProperties:(NSDictionary*)additionalProperties) {
+    RCTLogInfo(@"[CleverTap pushDisplayUnitElementClickedEventForID]");
+    [[self cleverTapInstance] recordDisplayUnitElementClickedEventForID:unitId additionalProperties:additionalProperties];
+}
+
+RCT_EXPORT_METHOD(fetchInbox:(RCTResponseSenderBlock)callback) {
+    RCTLogInfo(@"[CleverTap fetchInbox]");
+    if (callback == NULL) {
+        [[self cleverTapInstance] fetchInbox];
+    } else {
+        [[self cleverTapInstance] fetchInboxWithCallback:^(BOOL success) {
+            callback(@[[NSNull null], @(success)]);
+        }];
+    }
+}
+
 
 # pragma mark - Feature Flag
 

@@ -572,6 +572,24 @@ export const getAllDisplayUnits = () => {
     });
 };
 
+export const pushDisplayUnitElementClicked = () => {
+    CleverTap.pushDisplayUnitElementClickedEventForID('unit-abc-123', {
+        wzrk_element_id: 'btn-cta-1',
+        product_name: 'Running Shoes',
+        discount_pct: 20,
+        is_featured: true,
+    });
+    showToast('pushDisplayUnitElementClickedEventForID called');
+    console.log('pushDisplayUnitElementClickedEventForID called');
+};
+
+export const fetchInbox = () => {
+    CleverTap.fetchInbox((err, success) => {
+        console.log('fetchInbox result:', success, err);
+        showToast(`fetchInbox success: ${success}`);
+    });
+};
+
 // Product Config
 export const productConfig = () => {
     showToast('Product Configuration set to default');

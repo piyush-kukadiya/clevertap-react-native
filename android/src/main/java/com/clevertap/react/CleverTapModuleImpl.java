@@ -25,6 +25,7 @@ import com.clevertap.android.sdk.displayunits.model.CleverTapDisplayUnit;
 import com.clevertap.android.sdk.events.EventDetail;
 import com.clevertap.android.sdk.featureFlags.CTFeatureFlagsController;
 import com.clevertap.android.sdk.inapp.CTLocalInApp;
+import com.clevertap.android.sdk.FetchInboxCallback;
 import com.clevertap.android.sdk.inapp.callbacks.FetchInAppsCallback;
 import com.clevertap.android.sdk.inapp.customtemplates.CustomTemplateContext;
 import com.clevertap.android.sdk.inbox.CTInboxMessage;
@@ -873,6 +874,32 @@ public class CleverTapModuleImpl {
             cleverTap.pushDisplayUnitClickedEventForID(unitID);
         } else {
             Log.e(TAG, ErrorMessages.CLEVERTAP_NOT_INITIALIZED);
+        }
+    }
+
+    public void pushDisplayUnitElementClickedEventForID(String unitID, ReadableMap additionalProperties) {
+        CleverTapAPI cleverTap = getCleverTapAPI();
+        if (cleverTap != null) {
+            HashMap<String, Object> props = additionalProperties != null
+                    ? eventPropsFromReadableMap(additionalProperties, Object.class)
+                    : new HashMap<>();
+            cleverTap.pushDisplayUnitElementClickedEventForID(unitID, props);
+        } else {
+            Log.e(TAG, ErrorMessages.CLEVERTAP_NOT_INITIALIZED);
+        }
+    }
+
+    public void fetchInbox(Callback callback) {
+        CleverTapAPI cleverTap = getCleverTapAPI();
+        if (cleverTap == null) {
+            Log.e(TAG, ErrorMessages.CLEVERTAP_NOT_INITIALIZED);
+            return;
+        }
+        if (callback == null) {
+            cleverTap.fetchInbox();
+        } else {
+            cleverTap.fetchInbox((FetchInboxCallback) success ->
+                    callback.invoke(null, success));
         }
     }
 
