@@ -35,6 +35,10 @@ on:
         description: 'Optional branch suffix (defaults to today YYYY-MM-DD)'
         type: string
         default: ''
+      base_ref:
+        description: 'Wrapper branch to sync from / open PR against (default develop; use a test branch for testing)'
+        type: string
+        default: 'develop'
       model:
         description: 'Claude model (alias)'
         type: choice
@@ -55,6 +59,7 @@ jobs:
       ios_module:      ${{ inputs.ios_module != 'none' && inputs.ios_module || '' }}
       ios_version:     ${{ inputs.ios_version }}
       release_name:    ${{ inputs.release_name }}
+      base_ref:        ${{ inputs.base_ref }}
       model:           ${{ inputs.model }}
       skip_sync:       ${{ inputs.skip_sync }}
     secrets:
