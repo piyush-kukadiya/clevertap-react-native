@@ -254,6 +254,21 @@ CleverTap.pushInboxNotificationViewedEventForId('Message Id');
 CleverTap.pushInboxNotificationClickedEventForId('Message Id');			
 ```
 
+#### Fetch Inbox
+
+*Available from CleverTap React Native SDK v4.2.0.*
+
+Triggers an on-demand refresh of App Inbox messages from the server. Use this to let users pull fresh messages at a point of your choosing — for example, when they open a custom inbox screen. The optional callback receives a boolean: `true` if messages were fetched and applied to the local cache, `false` if the call was throttled, the inbox is not initialised, or the fetch failed. Calls are throttled to once every 5 minutes; a throttled call returns `false` without making a network request.
+
+```javascript
+CleverTap.fetchInbox((err, success) => {
+  console.log('Inbox fetch success:', success);
+});
+
+// Without callback (fire-and-forget)
+CleverTap.fetchInbox();
+```
+
 -----------
 
 ## Push primer for notification Permission (Android and iOS)
@@ -340,6 +355,20 @@ CleverTap.getDisplayUnitForId('Unit Id', (err, res) => {
 ```javascript 
 CleverTap.getAllDisplayUnits((err, res) => {
         console.log('All Display Units: ', res, err);
+});
+```
+
+#### Push Display Unit Element Clicked Event For ID
+
+*Available from CleverTap React Native SDK v4.2.0.*
+
+Records a `Notification Clicked` event for a specific element within a Native Display unit. Pass the unit's ID and an `additionalProperties` map that includes `wzrk_element_id` from the tapped element's metadata. The SDK merges these caller-supplied properties with cached `wzrk_*` attribution fields from the unit, enabling finer-grained click analytics beyond what `pushDisplayUnitClickedEventForID` provides.
+
+```javascript
+CleverTap.pushDisplayUnitElementClickedEventForID('unit-id-001', {
+  wzrk_element_id: 'btn_cta_1',
+  title: 'Summer Sale',
+  campaign_type: 'display',
 });
 ```
 

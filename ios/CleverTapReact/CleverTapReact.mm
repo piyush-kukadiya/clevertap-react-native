@@ -825,6 +825,17 @@ RCT_EXPORT_METHOD(showInbox:(NSDictionary*)styleConfig) {
     [[NSNotificationCenter defaultCenter] postNotificationName:kCleverTapInboxMessageTapped object:nil userInfo:body];
 }
 
+RCT_EXPORT_METHOD(fetchInbox:(RCTResponseSenderBlock)callback) {
+    RCTLogInfo(@"[CleverTap fetchInbox]");
+    if (callback) {
+        [[self cleverTapInstance] fetchInboxWithCallback:^(BOOL success) {
+            callback(@[[NSNull null], @(success)]);
+        }];
+    } else {
+        [[self cleverTapInstance] fetchInboxWithCallback:nil];
+    }
+}
+
 
 #pragma mark - Display Units
 
@@ -854,6 +865,11 @@ RCT_EXPORT_METHOD(pushDisplayUnitViewedEventForID:(NSString*)unitId) {
 RCT_EXPORT_METHOD(pushDisplayUnitClickedEventForID:(NSString*)unitId) {
     RCTLogInfo(@"[CleverTap pushDisplayUnitClickedEventForID]");
     [[self cleverTapInstance] recordDisplayUnitClickedEventForID:unitId];
+}
+
+RCT_EXPORT_METHOD(pushDisplayUnitElementClickedEventForID:(NSString*)unitId additionalProperties:(NSDictionary*)additionalProperties) {
+    RCTLogInfo(@"[CleverTap pushDisplayUnitElementClickedEventForID]");
+    [[self cleverTapInstance] recordDisplayUnitElementClickedEventForID:unitId additionalProperties:additionalProperties];
 }
 
 

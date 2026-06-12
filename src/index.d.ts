@@ -612,9 +612,24 @@ export function isPushPermissionGranted(callback: CallbackString): void;
    */
   export function pushDisplayUnitClickedEventForID(unitID: string): void;
 
+  /**
+   * Call this method to record a click on a specific element within a Native Display unit.
+   * The additionalProperties map should include wzrk_element_id from the element's metadata.
+   */
+  export function pushDisplayUnitElementClickedEventForID(unitID: string, additionalProperties: object): void;
+
+  /**
+   * Triggers an on-demand refresh of App Inbox messages from the server.
+   * The optional callback receives (err, success: boolean) when the fetch completes.
+   * Calls are throttled to once every 5 minutes.
+   *
+   * Available from CleverTap React Native SDK v4.2.0.
+   */
+  export function fetchInbox(callback?: Callback): void;
+
   /*******************
    * Product Configs
-   ******************/ 
+   ******************/
   /**
    * @deprecated
    * Since version 1.1.0 and will be removed in the future versions of this SDK.

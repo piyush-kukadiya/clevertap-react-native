@@ -358,6 +358,13 @@ export const pushInboxNotificationClicked = () => {
     CleverTap.pushInboxNotificationClickedEventForId('Message Id');
 };
 
+export const fetchInbox = () => {
+    CleverTap.fetchInbox((err, success) => {
+        console.log('fetchInbox result:', success, err);
+        showToast(`fetchInbox success: ${success}`);
+    });
+};
+
 export const printInboxMessagesArray = (data) => {
     if (data != null) {
         console.log('Total Inbox Message count = ' + data.length);
@@ -552,6 +559,16 @@ export const createNotificationChannelWithGroupIdAndSound = () => {
 };
 
 // Native Display
+export const pushDisplayUnitElementClicked = () => {
+    CleverTap.pushDisplayUnitElementClickedEventForID('unit-id-001', {
+        wzrk_element_id: 'btn_cta_1',
+        title: 'Summer Sale',
+        campaign_type: 'display',
+    });
+    showToast('Display Unit Element Clicked event pushed');
+    console.log('pushDisplayUnitElementClickedEventForID called');
+};
+
 export const getUnitID = () => {
     CleverTap.getDisplayUnitForId('Unit Id', (err, res) => {
         console.log('Get Display Unit for Id:', res, err);
