@@ -321,8 +321,16 @@ class CleverTapModule(reactContext: ReactApplicationContext?) :
         cleverTapModuleImpl.profileSetMultiValues(values, key)
     }
 
+    override fun fetchInbox(callback: Callback?) {
+        cleverTapModuleImpl.fetchInbox(callback)
+    }
+
     override fun pushDisplayUnitClickedEventForID(unitID: String?) {
         cleverTapModuleImpl.pushDisplayUnitClickedEventForID(unitID)
+    }
+
+    override fun pushDisplayUnitElementClickedEventForID(unitID: String?, additionalProperties: ReadableMap?) {
+        cleverTapModuleImpl.pushDisplayUnitElementClickedEventForID(unitID, additionalProperties)
     }
 
     override fun pushDisplayUnitViewedEventForID(unitID: String?) {
