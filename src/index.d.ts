@@ -588,6 +588,12 @@ export function isPushPermissionGranted(callback: CallbackString): void;
    */
   export function pushInboxNotificationViewedEventForId(messageId: string): void;
 
+  /**
+   * Triggers an on-demand App Inbox refresh from the server.
+   * Throttled to once every 5 minutes. Pass an optional callback to receive a success/failure boolean.
+   */
+  export function fetchInbox(callback?: (err: Object, res: boolean) => void): void;
+
   /****************************
   * Native Display Methods
   ****************************/
@@ -611,6 +617,12 @@ export function isPushPermissionGranted(callback: CallbackString): void;
    * Call this method to raise display unit clicked event
    */
   export function pushDisplayUnitClickedEventForID(unitID: string): void;
+
+  /**
+   * Records a Notification Clicked event for a specific element within a Display Unit.
+   * Pass additionalProperties including wzrk_element_id from the element's metadata.
+   */
+  export function pushDisplayUnitElementClickedEventForID(unitID: string, additionalProperties: object): void;
 
   /*******************
    * Product Configs

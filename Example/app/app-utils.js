@@ -358,6 +358,13 @@ export const pushInboxNotificationClicked = () => {
     CleverTap.pushInboxNotificationClickedEventForId('Message Id');
 };
 
+export const fetchInbox = () => {
+    CleverTap.fetchInbox((err, success) => {
+        console.log('fetchInbox success:', success, err);
+        showToast(`fetchInbox success: ${success}`);
+    });
+};
+
 export const printInboxMessagesArray = (data) => {
     if (data != null) {
         console.log('Total Inbox Message count = ' + data.length);
@@ -570,6 +577,14 @@ export const getAllDisplayUnits = () => {
         // Uncomment to access payload.
         // printDisplayUnitsPayload(res);
     });
+};
+
+export const pushDisplayUnitElementClickedEventForID = () => {
+    const unitID = 'unit-5a8f3b';
+    const additionalProperties = { wzrk_element_id: 'cta-button-buy', campaign_type: 'banner', position: 0 };
+    CleverTap.pushDisplayUnitElementClickedEventForID(unitID, additionalProperties);
+    showToast('pushDisplayUnitElementClickedEventForID called');
+    console.log('pushDisplayUnitElementClickedEventForID', unitID, additionalProperties);
 };
 
 // Product Config
