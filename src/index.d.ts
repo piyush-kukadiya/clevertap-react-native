@@ -612,6 +612,18 @@ export function isPushPermissionGranted(callback: CallbackString): void;
    */
   export function pushDisplayUnitClickedEventForID(unitID: string): void;
 
+  /**
+   * Records a Notification Clicked event for a specific element within a Display Unit.
+   * Pass per-click context in additionalProperties (e.g. wzrk_element_id from the action metadata).
+   */
+  export function pushDisplayUnitElementClickedEventForID(unitID: string, additionalProperties: object): void;
+
+  /**
+   * Triggers an on-demand App Inbox refresh from the server.
+   * Throttled to once every 5 minutes. Optional callback receives a boolean success flag.
+   */
+  export function fetchInbox(callback?: Callback): void;
+
   /*******************
    * Product Configs
    ******************/ 

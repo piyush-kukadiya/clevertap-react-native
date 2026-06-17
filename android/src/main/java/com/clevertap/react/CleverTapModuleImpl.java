@@ -876,6 +876,31 @@ public class CleverTapModuleImpl {
         }
     }
 
+    public void pushDisplayUnitElementClickedEventForID(String unitID, ReadableMap additionalProperties) {
+        CleverTapAPI cleverTap = getCleverTapAPI();
+        if (cleverTap != null) {
+            HashMap<String, Object> props = additionalProperties != null
+                    ? new HashMap<>(CleverTapUtils.MapUtil.toMap(additionalProperties))
+                    : new HashMap<>();
+            cleverTap.pushDisplayUnitElementClickedEventForID(unitID, props);
+        } else {
+            Log.e(TAG, ErrorMessages.CLEVERTAP_NOT_INITIALIZED);
+        }
+    }
+
+    public void fetchInbox(Callback callback) {
+        CleverTapAPI cleverTap = getCleverTapAPI();
+        if (cleverTap == null) {
+            Log.e(TAG, ErrorMessages.CLEVERTAP_NOT_INITIALIZED);
+            return;
+        }
+        if (callback == null) {
+            cleverTap.fetchInbox();
+        } else {
+            cleverTap.fetchInbox(success -> callback.invoke(null, success));
+        }
+    }
+
     public void pushDisplayUnitViewedEventForID(String unitID) {
         CleverTapAPI cleverTap = getCleverTapAPI();
         if (cleverTap != null) {

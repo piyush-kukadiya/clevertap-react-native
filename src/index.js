@@ -12,7 +12,7 @@ const EventEmitter = Platform.select({
 * @param {int} libVersion - The updated library version. If current version is 1.1.0 then pass as 10100  
 */
 const libName = 'React-Native';
-const libVersion = 40100;
+const libVersion = 40200;
 CleverTapReact.setLibrary(libName,libVersion);
 
 function defaultCallback(method, err, res) {
@@ -798,6 +798,24 @@ var CleverTap = {
      */
     pushDisplayUnitClickedEventForID: function (unitID) {
         CleverTapReact.pushDisplayUnitClickedEventForID(unitID);
+    },
+
+    /**
+     * Records a Notification Clicked event for a specific element within a Display Unit.
+     * @param {string} unitID - unit id of display unit of type CleverTapDisplayUnit
+     * @param {object} additionalProperties - per-click context such as wzrk_element_id and other wzrk_* fields
+     */
+    pushDisplayUnitElementClickedEventForID: function (unitID, additionalProperties) {
+        CleverTapReact.pushDisplayUnitElementClickedEventForID(unitID, additionalProperties);
+    },
+
+    /**
+     * Triggers an on-demand App Inbox refresh from the server.
+     * Throttled to once every 5 minutes between consecutive calls.
+     * @param {function(err, res)} callback - optional callback invoked with a boolean success flag when the fetch completes
+     */
+    fetchInbox: function (callback) {
+        callWithCallback('fetchInbox', null, callback);
     },
 
 

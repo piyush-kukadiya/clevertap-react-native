@@ -1,6 +1,25 @@
 Change Log
 ==========
 
+Version 4.2.0 *(June 11 2026)*
+-------------------------------------------
+**What's new**
+* **[Android Platform]**
+  * Supports [CleverTap Android SDK v8.3.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-830-june-2026).
+  * App Inbox Cross-Device Sync — inbox state (read, deleted) syncs across a user's devices automatically. Includes a pull-to-refresh gesture in the built-in App Inbox view, throttled to once every 5 minutes.
+  * Native Display Element Click — records a `Notification Clicked` event for a specific element within a Display Unit, with caller-supplied per-click context merged before `wzrk_*` attribution fields.
+
+* **[iOS Platform]**
+  * Supports [CleverTap iOS SDK v7.7.1](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-771-june-04-2026).
+  * App Inbox Cross-Device Sync — inbox state (read, deleted) syncs across a user's devices automatically. Includes a pull-to-refresh gesture in the built-in App Inbox view, throttled to once every 5 minutes.
+  * Native Display Element Click — records a `Notification Clicked` event for a specific element within a Display Unit.
+  * Silent-in-foreground push — push notifications can now be suppressed while the app is in the foreground via the `wzrk_sif:true` payload key, delivering them silently to the tray instead.
+
+**API changes**
+* **[Android and iOS Platform]**
+  * Adds `fetchInbox(callback?)` — triggers an on-demand App Inbox refresh from the server. Optional callback receives a boolean success flag. Throttled to once every 5 minutes.
+  * Adds `pushDisplayUnitElementClickedEventForID(unitID, additionalProperties)` — records a `Notification Clicked` event for a specific element within a Display Unit.
+
 Version 4.1.0 *(April 30 2026)*
 -------------------------------------------
 **What's new**
